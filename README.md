@@ -1,5 +1,5 @@
 What It Does:
-This tool helps you solve quadratic equations of the form ax² + bx + c = 0. Just enter the values for a, b, and c, and it will find the roots of the equation and show a graph of the function.
+Use this code to help you solve quadratic equations of the form ax² + bx + c = 0. Just enter the values for a, b, and c, and it will find the roots of the equation and show a graph of the function. Implemented graph using: Plotly.js
 
 How to Use It:
 Open the App: Open the index.html file in any web browser (like Chrome or Firefox).
