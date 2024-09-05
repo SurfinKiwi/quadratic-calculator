@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Physics 196 Honors - Quadratic Equation Solver</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        function calculateRoots() {
+            var a = document.getElementById("aValue").value;
+            var b = document.getElementById("bValue").value;
+            var c = document.getElementById("cValue").value;
+
+            a = Number(a);
+            b = Number(b);
+            c = Number(c);
+
+            var resultMessage = '';
+
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                resultMessage = "Please make sure all inputs are numbers!";
+            } else if (a === 0) {
+                resultMessage = "Coefficient 'a' cannot be zero!";
+            } else {
+                var discriminant = b * b - 4 * a * c;
+
+                if (discriminant > 0) {
+                    var root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                    var root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                    resultMessage = "The equation has two real roots: x = " + root1.toFixed(2) + " and x = " + root2.toFixed(2) + ".";
+                } else if (discriminant === 0) {
+                    var root = -b / (2 * a);
+                    resultMessage = "The equation has one real root: x = " + root.toFixed(2) + ".";
+                } else {
+                    var realPart = -b / (2 * a);
+                    var imaginaryPart = Math.sqrt(-discriminant) / (2 * a);
+                    resultMessage = "The equation has complex roots: x = " + realPart.toFixed(2) + " + " + imaginaryPart.toFixed(2) + "i and x = " + realPart.toFixed(2) + " - " + imaginaryPart.toFixed(2) + "i.";
+                }
+
+                plotGraph(a, b, c);
+            }
+
+            document.getElementById("resultOutput").innerHTML = resultMessage;
+        }
+
+        function plotGraph(a, b, c) {
+            var x = [];
+            var y = [];
+
+            for (var i = -10; i <= 10; i += 0.1) {
+                x.push(i);
+                y.push(a * i * i + b * i + c);
+            }
+
+            var trace = {
+                x: x,
+                y: y,
+                mode: 'lines',
+                type: 'scatter',
+                line: { color: 'blue' }
+            };
+
+            var layout = {
+                title: 'Graph of the Quadratic Equation',
+                xaxis: { title: 'x' },
+                yaxis: { title: 'y' }
+            };
+
+            Plotly.newPlot('graph', [trace], layout);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Physics 196 Honors - Quadratic Equation Solver</h1>
+    <p>Enter the values for <strong>a</strong>, <strong>b</strong>, and <strong>c</strong> to solve the quadratic
+        equation of the form <strong>ax² + bx + c = 0</strong>.</p>
+
+    <!-- Form for user input -->
+    <form name="inputForm" action="javascript:calculateRoots();">
+        <label for="aValue">a:</label>
+        <input type="text" id="aValue" name="aValue" size="5" required>
+        <label for="bValue">b:</label>
+        <input type="text" id="bValue" name="bValue" size="5" required>
+        <label for="cValue">c:</label>
+        <input type="text" id="cValue" name="cValue" size="5" required>
+        <br><br>
+        <input type="submit" value="Calculate Roots">
+    </form>
+
+    <!-- Box for formulas used -->
+    <div class="formulas-box">
+        <h2>Formulas Used</h2>
+        <p>The quadratic formula is used to find the roots of the equation <strong>ax² + bx + c = 0</strong>. The roots
+            are calculated using:</p>
+        <p class="highlight">x = (-b ± √(b² - 4ac)) / (2a)</p>
+        <p>Where:
+        <ul>
+            <li><strong>a</strong> is the coefficient of x²</li>
+            <li><strong>b</strong> is the coefficient of x</li>
+            <li><strong>c</strong> is the constant term</li>
+        </ul>
+        </p>
+    </div>
+
+    <!-- Div for graph -->
+    <div id="graph" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+
+    <!-- Where the results will be displayed -->
+    <p id="resultOutput"></p>
+</body>
+
+</html>

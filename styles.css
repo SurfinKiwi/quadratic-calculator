@@ -1,0 +1,123 @@
+body {
+    background: linear-gradient(to right, #e0f7fa, #b3e5fc);
+    /* Light blue gradient background */
+    font-family: Arial, sans-serif;
+    /* Basic font style */
+    text-align: center;
+    /* Center the text */
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2em;
+    /* Bigger font size for the heading */
+}
+
+form {
+    display: inline-block;
+    /* Center the form horizontally */
+    text-align: left;
+    /* Left align the form elements */
+    margin-top: 20px;
+}
+
+label {
+    margin-right: 10px;
+    /* Space between labels and input fields */
+}
+
+input[type="text"] {
+    margin-right: 10px;
+    /* Space between input fields */
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    /* Green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+    /* Darker green */
+}
+
+#resultOutput {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.formulas-box {
+    background-color: #f9f9f9;
+    /* Light background for the formulas box */
+    border: 1px solid #ddd;
+    /* Border around the box */
+    border-radius: 8px;
+    /* Rounded corners for the box */
+    padding: 15px;
+    display: inline-block;
+    /* Center the box horizontally */
+    margin-top: 20px;
+    text-align: left;
+    max-width: 600px;
+    /* Limit the width of the box */
+}
+
+.highlight {
+    background-color: #ffffe0;
+    /* Light yellow background for the highlighted formula */
+    padding: 2px 4px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    /* Position above the tooltip text */
+    left: 50%;
+    margin-left: -80px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
