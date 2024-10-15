@@ -25,11 +25,7 @@ How It Works
 Checks Input: Ensures you entered numbers and a is not zero.
 Finds Roots: Uses a formula to calculate the roots.
 Shows Graph: Plots a graph of the equation for you to see.
-Files
-index.html: Main file to use the tool.
-styles.css: Makes the app look good.
-License
-You can use and modify this tool freely!
+
 
 Credits
 I'm just a physics undergrad
